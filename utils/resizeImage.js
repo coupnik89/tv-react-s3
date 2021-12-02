@@ -4,6 +4,7 @@ const resize = (req, res, next) => {
     if(!req.file) return next()
 
     req.file.filename = `RS3-${req.file.originalname.split('.')[0]}-${Date.now()}.jpeg`
+    req.file.path = `public/img/${req.file.filename}`
 
     sharp(req.file.buffer)
         .resize(500, 500)

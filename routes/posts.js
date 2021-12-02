@@ -14,4 +14,11 @@ router.route('/')
     .get(getPosts)
     .post(uploadImage, resizeImage, createPost)
 
+router.route('/upload')
+    .post(uploadImage, resizeImage, (req, res, next) => {
+        console.log(req.file)
+
+        res.send('Upload')
+    })
+
 export default router
